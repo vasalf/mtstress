@@ -1,0 +1,8 @@
+{
+  "generate_cmd": "python3 ./generate.py",
+  "check_template": "diff %output% %correct%",
+  "correct_cmd": "python3 ./correct.py",
+  "solutions_path": "./solutions",
+  "compiled_path": "./exec",
+  "workdir": "./work"
+}

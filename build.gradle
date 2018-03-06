@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.2.10'
+    ext.kotlin_version = '1.2.30'
 
     repositories {
         mavenCentral()
@@ -10,16 +10,19 @@ buildscript {
 }
 
 group 'net.vasalf'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 apply plugin: 'kotlin'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "com.beust:klaxon:2.1.9"
+    compile "com.xenomachina:kotlin-argparser:2.0.4"
 }
 
 compileKotlin {
@@ -27,4 +30,11 @@ compileKotlin {
 }
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'net.vasalf.mtstress.MainKt'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }

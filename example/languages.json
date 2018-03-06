@@ -1,0 +1,16 @@
+{
+  "languages": [
+    {
+      "name": "c++",
+      "suffixes": ["cpp"],
+      "compile_template": "g++ -O2 -std=c++0x %solution% -o %executable%",
+      "exec_template": "%executable%"
+    },
+    {
+      "name": "python3",
+      "suffixes": ["py"],
+      "compile_template": "/bin/true",
+      "exec_template": "python3 %solution%"
+    }
+  ]
+}
